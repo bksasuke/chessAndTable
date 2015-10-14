@@ -14,18 +14,14 @@
 @implementation Chess
 UIView *square;
 - (void)viewDidLoad {
-    
-    CGFloat margin = 20;
     self.view.backgroundColor = [UIColor grayColor];
-    
     [self addslider];
-   
-                        [self aa];
+    [self drawchesstable];
 }
 
--(void) aa {
+-(void) drawchesstable {
     CGFloat margin = 20;
-     square = [[UIView alloc ] initWithFrame:CGRectMake(0,0, self.view.bounds.size.width-2*margin, self.view.bounds.size.width-2*margin)];
+    square = [[UIView alloc ] initWithFrame:CGRectMake(0,0, self.view.bounds.size.width-2*margin, self.view.bounds.size.width-2*margin)];
     square.backgroundColor = [UIColor whiteColor] ;
     [self.view addSubview:square];
     square.center = CGPointMake(self.view.bounds.size.width/2, self.view.bounds.size.height/2);
@@ -41,7 +37,7 @@ UIView *square;
             }
             [square addSubview:rect];
         }
-    
+        
     }
 }
 

@@ -33,20 +33,23 @@
 }
 
 -(void) rotate {
-    CGFloat rotate = _rotateSlider.value;
-    _myView.transform = CGAffineTransformMakeRotation(rotate *M_PI/_rotateSlider.maximumValue);
+    _myView.transform = CGAffineTransformMakeRotation(_rotateSlider.value *M_PI/_rotateSlider.maximumValue);
 }
 -(void) Scale {
-    CGFloat scaler = _sacleSlider.value;
-    _myView.transform = CGAffineTransformMakeScale(scaler, scaler);
+    
+    _myView.transform = CGAffineTransformMakeScale(_sacleSlider.value, _sacleSlider.value);
 }
 
 - (IBAction)onRotate:(id)sender {
+    [self Scale];
     [self rotate];
 }
 
 - (IBAction)onScaleChange:(id)sender {
+    [self rotate];
     [self Scale];
+    
+    
 }
 
 - (IBAction)onColorChange:(UISegmentedControl *)sender {
