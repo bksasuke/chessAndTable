@@ -32,22 +32,20 @@
     
 }
 
--(void) rotate {
-    _myView.transform = CGAffineTransformMakeRotation(_rotateSlider.value *M_PI/_rotateSlider.maximumValue);
-}
--(void) Scale {
-    
-    _myView.transform = CGAffineTransformMakeScale(_sacleSlider.value, _sacleSlider.value);
+-(void) rotateAndScale {
+    CGAffineTransform rotate = CGAffineTransformMakeRotation(_rotateSlider.value *M_PI/_rotateSlider.maximumValue);
+    CGAffineTransform scale  = CGAffineTransformMakeScale(_sacleSlider.value, _sacleSlider.value);
+    _myView.transform = CGAffineTransformConcat(rotate, scale);
 }
 
 - (IBAction)onRotate:(id)sender {
-    [self Scale];
-    [self rotate];
+    [self rotateAndScale];
+
 }
 
 - (IBAction)onScaleChange:(id)sender {
-    [self rotate];
-    [self Scale];
+    [self rotateAndScale];
+    
     
     
 }
